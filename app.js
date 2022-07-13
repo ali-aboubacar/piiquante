@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require("mongoose");
 const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
+//connexion a mangoDB
 mongoose
   .connect(
     `mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_PASSWORD}@cluster0.kbcepso.mongodb.net/?retryWrites=true&w=majority`,
@@ -28,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-
+//on fait appele a nos routes
 app.use("/api/sauces", sauceRoutes);
 app.use("/api/auth", userRoutes);
 app.use("/images", express.static(path.join(__dirname, "images")));
