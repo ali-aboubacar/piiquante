@@ -153,6 +153,7 @@ exports.deleteSauce = (req, res, next) => {
     });
 };
 //recuperer toute les sauces
+
 exports.getAllSauce = (req, res, next) => {
   Sauce.find()
     .then((sauces) => {
